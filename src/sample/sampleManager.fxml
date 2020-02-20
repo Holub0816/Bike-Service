@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.managerController">
+    <center>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Pracownicy i etaty">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="pracownikTable" layoutX="317.0" layoutY="294.0" prefHeight="269.0" prefWidth="676.0">
+                                    <columns>
+                                        <TableColumn fx:id="pracownikidColumn" prefWidth="110.0" text="pracownik_id" />
+                                        <TableColumn fx:id="imiePracownikaColumn" prefWidth="137.0" text="imie_pracownika" />
+                                        <TableColumn fx:id="nazwiskoPracownikaColumn" prefWidth="153.0" text="nazwisko_pracownika" />
+                                        <TableColumn fx:id="dataZatrudnieniaColumn" prefWidth="163.0" text="data_zatrudnienia" />
+                                        <TableColumn fx:id="etatidPracownikColumn" prefWidth="110.0" text="etat_id" />
+                                    </columns>
+                                </TableView>
+                                <VBox layoutX="3.0" layoutY="14.0" prefHeight="554.0" prefWidth="227.0">
+                                    <children>
+                                        <Label text="Dodaj pracownika:">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Imie">
+                                            <VBox.margin>
+                                                <Insets left="30.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="imiePracownikaTxtfield">
+                                            <VBox.margin>
+                                                <Insets left="30.0" right="30.0" top="5.0" />
+                                            </VBox.margin>
+                                        </TextField>
+                                        <Label text="Nazwisko">
+                                            <VBox.margin>
+                                                <Insets left="30.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="nazwiskoPracownikaTxtfield">
+                                            <VBox.margin>
+                                                <Insets left="30.0" right="30.0" top="5.0" />
+                                            </VBox.margin>
+                                        </TextField>
+                                        <Label text="Etat">
+                                            <VBox.margin>
+                                                <Insets left="30.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <ChoiceBox fx:id="etatChoicebox" prefWidth="150.0">
+                                            <VBox.margin>
+                                                <Insets left="30.0" top="5.0" />
+                                            </VBox.margin>
+                                        </ChoiceBox>
+                                        <Button fx:id="dodajPracownika" mnemonicParsing="false" onAction="#dodajPracownikaAction" text="Dodaj pracownika">
+                                            <VBox.margin>
+                                                <Insets left="50.0" top="15.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Label text="Pracownik">
+                                            <VBox.margin>
+                                                <Insets top="50.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                            <children>
+                                                <VBox prefHeight="100.0" prefWidth="125.0">
+                                                    <children>
+                                                        <Label text="ID pracownika">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" top="10.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="idPracownikaTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <Label text="Zmieniane pole">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="polePracownikTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <Label text="Nowa wartość">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="nowaWartoscPracownikTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="szukajPracownika" mnemonicParsing="false" onAction="#szukajPracownikaAction" text="Szukaj">
+                                                    <HBox.margin>
+                                                        <Insets left="15.0" top="15.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="aktualizujPracownika" mnemonicParsing="false" onAction="#aktualizujPracownikaAction" text="Aktualizuj">
+                                            <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazPracownika" mnemonicParsing="false" onAction="#pokazPracownikaAction" text="Pokaż wszystkich">
+                                            <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunPracownika" mnemonicParsing="false" onAction="#usunPracownikaAction" text="Usuń">
+                                            <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                                <TableView fx:id="etatTable" layoutX="586.0" prefHeight="278.0" prefWidth="407.0">
+                                    <columns>
+                                        <TableColumn fx:id="etatidColumn" prefWidth="126.0" text="etat_id" />
+                                        <TableColumn fx:id="nazwaEtatuColumn" prefWidth="162.0" text="nazwa_etatu" />
+                                        <TableColumn fx:id="stawkaColumn" prefWidth="118.0" text="stawka" />
+                                    </columns>
+                                </TableView>
+                                <VBox layoutX="238.0" prefHeight="294.0" prefWidth="214.0">
+                                    <children>
+                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                            <children>
+                                                <VBox prefHeight="153.0" prefWidth="145.0">
+                                                    <children>
+                                                        <Label text="Etat">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="10.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label text="ID etatu">
+                                                            <VBox.margin>
+                                                                <Insets top="10.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="idEtatuTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <Label text="Zmieniane pole">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="poleEtatTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <Label text="Nowa wartość">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField fx:id="nowaWartoscEtatTxtfield">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="szukajEtat" mnemonicParsing="false" onAction="#szukajEtatAction" text="Szukaj">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" top="40.0" />
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="aktualizujEtat" mnemonicParsing="false" onAction="#aktualizujEtatAction" text="Aktualizuj">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazEtat" mnemonicParsing="false" onAction="#pokazEtatAction" text="Pokaż wszystkie">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunEtat" mnemonicParsing="false" onAction="#usunEtatAction" text="Usuń">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                        <Button fx:id="przelogujBtn" layoutX="230.0" layoutY="466.0" mnemonicParsing="false" onAction="#przeloguj" text="Przeloguj" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Produkty">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="produktTable" layoutY="229.0" prefHeight="342.0" prefWidth="561.0">
+                                    <columns>
+                                        <TableColumn fx:id="produktidColumn" prefWidth="94.0" text="produkt_id" />
+                                        <TableColumn fx:id="nazwaProduktuColumn" prefWidth="192.0" text="nazwa_produktu" />
+                                        <TableColumn fx:id="cenaColumn" prefWidth="96.0" text="cena" />
+                                        <TableColumn fx:id="producentColumn" prefWidth="178.0" text="producent" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutX="5.0" layoutY="5.0" prefHeight="211.0" prefWidth="990.0">
+                                    <children>
+                                        <VBox prefHeight="219.0" prefWidth="181.0">
+                                            <children>
+                                                <Label text="ID produktu">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="produktidTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Zmieniane pole">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="poleProduktTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Nowa wartość">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="nowaWartoscProduktTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="szukajProdukt" mnemonicParsing="false" onAction="#szukajProduktAction" text="Szukaj">
+                                            <HBox.margin>
+                                                <Insets right="5.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="aktualizujProdukt" mnemonicParsing="false" onAction="#aktualizujProduktAction" text="Aktualizuj">
+                                            <HBox.margin>
+                                                <Insets right="5.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazProdukt" mnemonicParsing="false" onAction="#pokazProduktAction" text="Pokaż wszystkie">
+                                            <HBox.margin>
+                                                <Insets right="5.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunProdukt" mnemonicParsing="false" onAction="#usunProduktAction" text="Usuń">
+                                            <HBox.margin>
+                                                <Insets right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <VBox prefHeight="219.0" prefWidth="301.0">
+                                            <children>
+                                                <Label text="Dodaj produkt:">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="nazwaProduktTxtfield" promptText="Nazwa produktu">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" right="20.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="cenProduktuTxtfield" promptText="Cena">
+                                                    <VBox.margin>
+                                                        <Insets left="40.0" right="40.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="producentTxtfield" promptText="Producent">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" right="20.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Button fx:id="dodajProdukt" mnemonicParsing="false" onAction="#dodajProduktAction" text="Dodaj produkt">
+                                                    <VBox.margin>
+                                                        <Insets left="100.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="60.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Klienci i rowery">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="rowerTable" layoutX="500.0" layoutY="204.0" prefHeight="361.0" prefWidth="496.0">
+                                    <columns>
+                                        <TableColumn fx:id="roweridColumn" prefWidth="62.0" text="rower_id" />
+                                        <TableColumn fx:id="typRoweruColumn" prefWidth="102.0" text="typ_roweru" />
+                                        <TableColumn fx:id="markaRoweruColumn" prefWidth="94.0" text="marka_roweru" />
+                                        <TableColumn fx:id="kolorRoweruColumn" prefWidth="98.0" text="kolor_roweru" />
+                                        <TableColumn fx:id="rodzajUsterkiColumn" prefWidth="139.0" text="rodzaj_serwisu" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="klientTable" layoutY="204.0" prefHeight="361.0" prefWidth="463.0">
+                                    <columns>
+                                        <TableColumn fx:id="klientIdColumn" prefWidth="53.0" text="klient_id" />
+                                        <TableColumn fx:id="imieColumn" prefWidth="82.0" text="imie_klienta" />
+                                        <TableColumn fx:id="nazwiskoColumn" prefWidth="121.0" text="nazwisko_klienta" />
+                                        <TableColumn fx:id="nrTelefonuColumn" prefWidth="73.0" text="nr_telefonu" />
+                                        <TableColumn fx:id="mailColumn" prefWidth="68.0" text="mail" />
+                                        <TableColumn fx:id="rowerIdColumn" prefWidth="65.0" text="rower_id" />
+                                    </columns>
+                                </TableView>
+                                <HBox prefHeight="248.0" prefWidth="1000.0">
+                                    <children>
+                                        <VBox prefHeight="248.0" prefWidth="136.0">
+                                            <children>
+                                                <Label text="ID klienta">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="id_klient">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" right="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Zmieniane pole">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="poleKlientTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" right="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Nowa wartość">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="nowaWartoscKlientTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" right="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="szukajKlient" mnemonicParsing="false" onAction="#szukajKlientAction" text="Szukaj klienta">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="aktualizujKlient" mnemonicParsing="false" onAction="#aktualizujKlientAction" text="Aktualizuj klienta">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazKlient" mnemonicParsing="false" onAction="#pokazKlientAction" text="Pokaż wszystkich klientów">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunKlient" mnemonicParsing="false" onAction="#usunKlientAction" text="Usuń klienta">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <VBox prefHeight="248.0" prefWidth="155.0">
+                                            <children>
+                                                <Label text="ID roweru">
+                                                    <VBox.margin>
+                                                        <Insets top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="roweridTxtfield" />
+                                                <Button fx:id="szukajRower" mnemonicParsing="false" onAction="#szukajRowerAction" text="Szukaj roweru">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="20.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                        <Button fx:id="pokazRower" mnemonicParsing="false" onAction="#pokazRowerAction" text="Pokaż wszystkie rowery">
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunRower" mnemonicParsing="false" onAction="#usunRowerAction" text="Usuń rower">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Serwis">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="serwisTable" layoutY="229.0" prefHeight="342.0" prefWidth="491.0">
+                                    <columns>
+                                        <TableColumn fx:id="nazwaSerwisColumn" prefWidth="393.0" text="nazwa_serwisu" />
+                                        <TableColumn fx:id="cenaSerwisuColumn" prefWidth="97.0" text="cena" />
+                                    </columns>
+                                </TableView>
+                                <HBox prefHeight="217.0" prefWidth="1000.0">
+                                    <children>
+                                        <VBox prefHeight="217.0" prefWidth="179.0">
+                                            <children>
+                                                <Label text="Nazwa serwisu">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="nazwaSerwisuTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Zmieniane pole">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="poleSerwisTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Label text="Nowa wartość">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="nowaWartoscSerwisTxtfield">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="szukajSerwis" mnemonicParsing="false" onAction="#szukajSerwisAction" text="Szukaj">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="aktualizujSerwis" mnemonicParsing="false" onAction="#aktualizujSerwisAction" text="Aktualizuj">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazSerwis" mnemonicParsing="false" onAction="#pokazSerwisAction" text="Pokaż wszystkie">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunSerwis" mnemonicParsing="false" onAction="#usunSerwisAction" text="Usuń">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <VBox prefHeight="217.0" prefWidth="331.0">
+                                            <children>
+                                                <Label text="Dodaj nową usługę serwisową:">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="dodajNazweUslugiTxtfield" promptText="Nazwa usługi serwisowej">
+                                                    <VBox.margin>
+                                                        <Insets left="40.0" right="40.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="cenaSerwisTxtfield" promptText="Cena">
+                                                    <VBox.margin>
+                                                        <Insets left="40.0" right="40.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Button fx:id="dodajSerwis" mnemonicParsing="false" onAction="#dodajSerwisAction" text="Dodaj usługę serwisową">
+                                                    <VBox.margin>
+                                                        <Insets left="100.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets left="70.0" />
+                                            </HBox.margin>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Usługi">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="uslugaZrealizowanaTable" layoutY="184.0" prefHeight="387.0" prefWidth="682.0">
+                                    <columns>
+                                        <TableColumn fx:id="uzUslugaIdColumn" prefWidth="62.0" text="usluga_id" />
+                                        <TableColumn fx:id="uzPracownikIdColumn" prefWidth="82.0" text="pracownik_id" />
+                                        <TableColumn fx:id="uzKlientIdColumn" prefWidth="57.0" text="klient_id" />
+                                        <TableColumn fx:id="uzRowerIdColumn" prefWidth="58.0" text="rower_id" />
+                                        <TableColumn fx:id="uzProduktIdColumn" prefWidth="74.0" text="produkt_id" />
+                                        <TableColumn fx:id="uzPrzyjecieColumn" prefWidth="81.0" text="przyjęcie" />
+                                        <TableColumn fx:id="uzRozpoczecieColumn" prefWidth="76.0" text="rozpoczęcie" />
+                                        <TableColumn fx:id="uzZakonczenieColumn" prefWidth="74.0" text="zakończenie" />
+                                        <TableColumn fx:id="uzCenaColumn" prefWidth="41.0" text="cena" />
+                                        <TableColumn fx:id="uzStanColumn" prefWidth="76.0" text="stan" />
+                                    </columns>
+                                </TableView>
+                                <HBox prefHeight="184.0" prefWidth="632.0">
+                                    <children>
+                                        <VBox prefHeight="184.0" prefWidth="187.0">
+                                            <children>
+                                                <Label text="ID usługi">
+                                                    <VBox.margin>
+                                                        <Insets left="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="id_uslugaZrealizowana">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="szukajUslugaZrealizowana" mnemonicParsing="false" onAction="#szukajUslugaZrealizowanaAction" text="Szukaj">
+                                            <HBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="pokazUslugaZrealizowana" mnemonicParsing="false" onAction="#pokazUslugaZrealizowanaAction" text="Pokaż wszystko">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="usunUslugaZrealizowana" mnemonicParsing="false" onAction="#usunUslugaZrealizowanaAction" text="Usuń">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="wyczyscUslugaZrealizowana" mnemonicParsing="false" onAction="#wyczyscUslugaZrealizowanaAction" text="Wyczyść">
+                                            <HBox.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <VBox layoutX="695.0" prefHeight="574.0" prefWidth="309.0">
+                                    <children>
+                                        <Label text="Data">
+                                            <VBox.margin>
+                                                <Insets left="50.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="dataTxtfield">
+                                            <VBox.margin>
+                                                <Insets left="50.0" right="50.0" />
+                                            </VBox.margin>
+                                        </TextField>
+                                        <Button fx:id="policzDochodZDnia" mnemonicParsing="false" onAction="#policzDochódZDniaAction" prefHeight="43.0" prefWidth="204.0" text="Policz dochód w wybranego dnia">
+                                            <VBox.margin>
+                                                <Insets left="53.0" top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Label fx:id="dochodWynik" textFill="#f50000">
+                                            <VBox.margin>
+                                                <Insets left="60.0" top="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="policzProdukty" mnemonicParsing="false" onAction="#policzProduktyAction" prefHeight="43.0" prefWidth="265.0" text="Policz dzienną liczbę sprzedanych produktów">
+                                            <VBox.margin>
+                                                <Insets left="20.0" top="30.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Label fx:id="produktyWynik" textFill="RED">
+                                            <VBox.margin>
+                                                <Insets left="60.0" top="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="policzSerwisy" mnemonicParsing="false" onAction="#policzSerwisyAction" prefHeight="43.0" prefWidth="298.0" text="Policz dzienną liczbę wykonanych usług serwisowych">
+                                            <VBox.margin>
+                                                <Insets top="100.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                        <Label fx:id="uslugiWynik" textFill="RED">
+                                            <VBox.margin>
+                                                <Insets left="60.0" top="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="System Italic" size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
